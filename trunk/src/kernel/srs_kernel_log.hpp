@@ -91,11 +91,11 @@ extern ISrsContext* _srs_context;
 // Log style.
 // Use __FUNCTION__ to print c method
 // Use __PRETTY_FUNCTION__ to print c++ class:method
-#define srs_verbose(msg, ...) _srs_log->verbose(NULL, _srs_context->get_id(), msg, ##__VA_ARGS__)
-#define srs_info(msg, ...)    _srs_log->info(NULL, _srs_context->get_id(), msg, ##__VA_ARGS__)
-#define srs_trace(msg, ...)   _srs_log->trace(NULL, _srs_context->get_id(), msg, ##__VA_ARGS__)
-#define srs_warn(msg, ...)    _srs_log->warn(NULL, _srs_context->get_id(), msg, ##__VA_ARGS__)
-#define srs_error(msg, ...)   _srs_log->error(NULL, _srs_context->get_id(), msg, ##__VA_ARGS__)
+#define srs_verbose(msg, ...) _srs_log->verbose(__PRETTY_FUNCTION__, _srs_context->get_id(), msg, ##__VA_ARGS__)
+#define srs_info(msg, ...)    _srs_log->info(__PRETTY_FUNCTION__,  _srs_context->get_id(), msg, ##__VA_ARGS__)
+#define srs_trace(msg, ...)   _srs_log->trace(__PRETTY_FUNCTION__, _srs_context->get_id(), msg, ##__VA_ARGS__)
+#define srs_warn(msg, ...)    _srs_log->warn(__PRETTY_FUNCTION__, _srs_context->get_id(), msg, ##__VA_ARGS__)
+#define srs_error(msg, ...)   _srs_log->error(__PRETTY_FUNCTION__, _srs_context->get_id(), msg, ##__VA_ARGS__)
 // With tag.
 #define srs_verbose2(tag, msg, ...) _srs_log->verbose(tag, _srs_context->get_id(), msg, ##__VA_ARGS__)
 #define srs_info2(tag, msg, ...)    _srs_log->info(tag, _srs_context->get_id(), msg, ##__VA_ARGS__)
